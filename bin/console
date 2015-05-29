@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "zendesk/help_center"
+
+# You can add fixtures and/or initialization code here to make experimenting
+# with your gem easier. You can also use a different console, if you like.
+
+base_url = 'https://<%subdomain%>.zendesk.com/api/v2'
+username = '<%your-zendesk-username%>'
+password = '<%yoor-zendesk-password%>'
+
+client = ZendeskAPI::Client.new do |config|
+  config.url      = base_url
+  config.username = username
+  config.password = password
+
+  require 'logger'
+  config.logger = Logger.new(STDOUT)
+end
+
+# (If you use this, don't forget to add pry to your Gemfile!)
+# require "pry"
+# Pry.start
+
+require "irb"
+IRB.start
