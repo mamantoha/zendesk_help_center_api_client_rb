@@ -5,12 +5,15 @@
 Gem::Specification.new do |spec|
   spec.name          = "zendesk_help_center_api"
   spec.version       = '0.0.1'
+  spec.license       = 'Apache License Version 2.0'
   spec.authors       = ["Anton Maminov"]
   spec.email         = ["anton.linux@gmail.com"]
 
   spec.summary       = %q{Zendesk Help Center REST API Client}
   spec.description   = %q{Ruby wrapper for the REST API at http://www.zendesk.com. Documentation at https://developer.zendesk.com/rest_api/docs/help_center/introduction.}
   spec.homepage      = "https://github.com/mamantoha/zendesk_help_center_api_client_rb"
+
+  spec.required_ruby_version = ">= 2.0.0"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
   # delete this section to allow pushing this gem to any host.
