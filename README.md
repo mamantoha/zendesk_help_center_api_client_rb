@@ -1,6 +1,6 @@
 # Zendesk HelpCenter API Client
 
-This gem added support for `Zendesk Help Center` methods under [ZendeskAPI::Client](https://github.com/zendesk/zendesk_api_client_rb) gem.
+This gem added support for [Zendesk Help Center](https://developer.zendesk.com/rest_api/docs/help_center/introduction) methods under [ZendeskAPI::Client](https://github.com/zendesk/zendesk_api_client_rb) gem.
 
 To experiment with that code, run `bin/console` for an interactive prompt.
 
@@ -62,17 +62,19 @@ article.destroy
 
 ### Help Center Translations
 
+Translations represent the content in all supported languages of a `Help Center` item such as an `article` or a `section`. The default language is also included in the translations.
+
 ```ruby
 categories_tr = category.translations
-category_tr = categories_tr.build(locale: 'uk', name: 'Тестова Стаття')
+category_tr = categories_tr.build(locale: 'uk', title: 'Тестова Стаття', body: '')
 category_tr.save
 
 sections_tr = sections.translations
-section_tr = article_tr.build(locale: 'uk', name: 'Це тест')
+section_tr = article_tr.build(locale: 'uk', title: 'Це тест', body: '')
 section_tr.save
 
 articles_tr = article.translations
-article_tr = article_translations.build(locale: 'uk', title: 'Тестова Стаття')
+article_tr = article_translations.build(locale: 'uk', title: 'Тестова Стаття', body: '')
 article_tr.save
 ```
 
@@ -89,3 +91,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+## License and Author
+
+Copyright: 2015-2016 [Anton Maminov](anton.maminov@gmail.com)
+
+This project is licensed under the Apache License, a copy of which can be found in the LICENSE file.
