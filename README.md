@@ -30,6 +30,15 @@ $ gem install zendesk_help_center_api
 ```ruby
 require 'zendesk_api/help_center'
 ```
+### Zendesk CLient
+
+```ruby
+client = ZendeskAPI::Client.new do |config|
+  config.url = "<- your-zendesk-url ->" # e.g. https://mydesk.zendesk.com/api/v2
+  config.username = "login.email@zendesk.com"
+  config.password = "your zendesk password"
+end
+```
 
 ### Help Center
 
