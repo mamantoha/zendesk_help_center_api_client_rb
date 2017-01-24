@@ -54,7 +54,7 @@ module ZendeskAPI
           attributes[:title] ||= attributes.delete(:name)
           attributes[:body] ||= attributes.delete(:description)
 
-          attributes
+          { self.class.singular_resource_name.to_sym => attributes.changes }
         end
 
         def destroy!
@@ -85,7 +85,7 @@ module ZendeskAPI
           attributes[:title] ||= attributes.delete(:name)
           attributes[:body] ||= attributes.delete(:description)
 
-          attributes
+          { self.class.singular_resource_name.to_sym => attributes.changes }
         end
 
         def destroy!
