@@ -103,6 +103,6 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## License and Author
 
-Copyright: 2015-2016 [Anton Maminov](anton.maminov@gmail.com)
+Copyright: 2015-2017 [Anton Maminov](anton.maminov@gmail.com)
 
 This project is licensed under the Apache License, a copy of which can be found in the LICENSE file.
