@@ -44,19 +44,6 @@ module ZendeskAPI
           super
         end
 
-        # Categorues and sections have the mandatory keys 'name' and 'description'. But in translations used 'title' and 'body' keys.
-        # Here we replace this keys:
-        #
-        # More info:
-        # https://support.zendesk.com/hc/communities/public/posts/204262967-Error-when-creating-new-translation-for-the-section-via-Rest-API
-        #
-        def attributes_for_save
-          attributes[:title] ||= attributes.delete(:name)
-          attributes[:body] ||= attributes.delete(:description)
-
-          attributes
-        end
-
         def destroy!
           super do |req|
             req.path = @client.config.url + "/help_center/translations/" + id.to_s
@@ -79,13 +66,6 @@ module ZendeskAPI
         def initialize(client, attributes = {})
           attributes["section_id"] ||= attributes.delete('source_id')
           super
-        end
-
-        def attributes_for_save
-          attributes[:title] ||= attributes.delete(:name)
-          attributes[:body] ||= attributes.delete(:description)
-
-          attributes
         end
 
         def destroy!

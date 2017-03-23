@@ -65,7 +65,7 @@ category.update(name: 'This is a test')
 ```ruby
 articles = section.articles
 articles.build(title: 'Test Article')
-category.update(description: 'This is a test')
+category.update(body: 'This is a test')
 article.destroy
 ```
 
