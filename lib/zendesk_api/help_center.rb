@@ -1,5 +1,4 @@
 require 'zendesk_api'
-# require 'byebug'
 
 module ZendeskAPI
   module HelpCenter
