@@ -129,6 +129,12 @@ module ZendeskAPI
 
       has HcCategory
       has Section
+
+      def save!(*)
+        super do |req|
+          req.path = "help_center/sections/#{section.id}/articles"
+        end
+      end
     end
   end
 end
