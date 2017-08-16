@@ -6,6 +6,15 @@ module ZendeskAPI
 
     class Article < Resource; end
     class Section < Resource; end
+    class ArticleLabel < Resource; end
+
+    class ArticleLabel < Resource
+      class << self
+        def singular_resource_name
+          'article_label'
+        end
+      end
+    end
 
     class Article < Resource
       class << self
@@ -103,6 +112,27 @@ module ZendeskAPI
       has_many Translation
     end
 
+    class ArticleLabel < Resource 
+      class Translation < DataResource
+        extend Read
+        include Create
+        include Destroy
+
+        def initialize(client, attributes = {})
+          attributes["article_label_id"] ||= attributes.delete('source_id')
+          super
+        end
+
+        def destroy!
+          super do |req|
+            req.path = "help_center/articles/#{article.id}/labels/" + id.to_s
+          end
+        end
+
+        has ArticleLabel
+      end
+    end
+
     class HcCategory < Resource
       namespace "help_center"
 
@@ -129,6 +159,7 @@ module ZendeskAPI
 
       has HcCategory
       has Section
+      has ArticleLabel
 
       def save!(*)
         super do |req|
@@ -136,5 +167,18 @@ module ZendeskAPI
         end
       end
     end
+
+    class ArticleLabel < Resource
+      namespace "help_center"
+
+      has Article
+
+      def save!(*)
+        super do |req|
+          req.path = "help_center/articles/#{article.id}/labels"
+        end
+      end      
+    end
+
   end
 end
