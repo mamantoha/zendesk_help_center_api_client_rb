@@ -132,7 +132,12 @@ module ZendeskAPI
 
       def save!(*)
         super do |req|
-          req.path = "help_center/sections/#{section.id}/articles"
+          case req.method
+          when :post # create article
+            req.path = "help_center/sections/#{association.options["parent"].id}/articles"
+          when :put # update article
+            # do nothing
+          end
         end
       end
     end

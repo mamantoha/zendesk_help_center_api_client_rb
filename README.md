@@ -44,29 +44,46 @@ end
 
 #### Categories
 
+These endpoints only update category-level metadata such as the sorting position.
+They don't update category translations.
+
 ```ruby
 categories = client.hc_categories
 category = categories.build(name: 'Test Category')
 category.save
-category.update(description: 'This is a test')
 category.destroy
 ```
 
 #### Sections
 
+These endpoints only update section-level metadata such as the sorting position.
+They don't update section translations.
+See Translations.
+
 ```ruby
 sections = category.sections
 section = sections.first
-category.update(name: 'This is a test')
 ```
 
 #### Articles
 
+Create Article:
+
 ```ruby
 articles = section.articles
 articles.build(title: 'Test Article')
-category.update(body: 'This is a test')
-article.destroy
+```
+
+Update Article:
+
+These endpoints update article-level metadata such as its promotion status or sorting position.
+The endpoints do not update translation properties such as the article's title, body, locale, or draft.
+See Translations section.
+
+```ruby
+article = section.articles.first
+article.update(position: 42)
+article.save
 ```
 
 ### Help Center Translations
@@ -84,6 +101,10 @@ section_tr.save
 
 articles_tr = article.translations
 article_tr = article_translations.build(locale: 'uk', title: 'Тестова Стаття', body: '')
+article_tr.save
+
+article_tr = article.translations.select { |tr| tr.locale == "en-us" }.first
+artile_tr.update(title: "New Title", body: "New Body")
 article_tr.save
 ```
 
