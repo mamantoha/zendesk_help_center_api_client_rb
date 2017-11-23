@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "zendesk_help_center_api"
-  spec.version       = '0.4.0'
+  spec.version       = '0.4.1'
   spec.license       = 'Apache-2.0'
   spec.authors       = ["Anton Maminov"]
   spec.email         = ["anton.linux@gmail.com"]

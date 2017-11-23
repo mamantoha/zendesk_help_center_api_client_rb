@@ -104,7 +104,7 @@ article_tr = article_translations.build(locale: 'uk', title: 'Тестова С�
 article_tr.save
 
 article_tr = article.translations.select { |tr| tr.locale == "en-us" }.first
-artile_tr.update(title: "New Title", body: "New Body")
+article_tr.update(title: "New Title", body: "New Body")
 article_tr.save
 ```
 
