@@ -1,4 +1,5 @@
 require 'zendesk_api'
+require 'zendesk_api/help_center/version'
 
 module ZendeskAPI
   module HelpCenter

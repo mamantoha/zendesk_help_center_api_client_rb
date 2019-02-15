@@ -1,6 +1,8 @@
+require File.expand_path('lib/zendesk_api/help_center/version', __dir__)
+
 Gem::Specification.new do |spec|
   spec.name          = "zendesk_help_center_api"
-  spec.version       = '0.4.1'
+  spec.version       = ZendeskAPI::HelpCenter::VERSION
   spec.license       = 'Apache-2.0'
   spec.authors       = ["Anton Maminov"]
   spec.email         = ["anton.linux@gmail.com"]
@@ -14,6 +16,7 @@ Gem::Specification.new do |spec|
   spec.files         = [
     "README.md",
     "lib/zendesk_api/help_center.rb",
+    "lib/zendesk_api/help_center/version.rb",
   ]
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
