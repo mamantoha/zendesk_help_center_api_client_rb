@@ -4,7 +4,6 @@ This gem added support for [Zendesk Help Center](https://developer.zendesk.com/r
 
 To experiment with that code, run `bin/console` for an interactive prompt.
 
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -15,14 +14,14 @@ gem 'zendesk_help_center_api'
 
 And then execute:
 
-```
-$ bundle
+```console
+bundle
 ```
 
 Or install it yourself as:
 
-```
-$ gem install zendesk_help_center_api
+```console
+gem install zendesk_help_center_api
 ```
 
 ## Usage
@@ -30,7 +29,8 @@ $ gem install zendesk_help_center_api
 ```ruby
 require 'zendesk_api/help_center'
 ```
-### Zendesk CLient
+
+### Zendesk Client
 
 ```ruby
 client = ZendeskAPI::Client.new do |config|
@@ -116,7 +116,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-1. Fork it ( https://github.com/mamantoha/zendesk_help_center_api_client_rb/fork )
+1. Fork it (<https://github.com/mamantoha/zendesk_help_center_api_client_rb/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -124,6 +124,6 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## License and Author
 
-Copyright: 2015-2017 [Anton Maminov](anton.maminov@gmail.com)
+Copyright: 2015-2019 [Anton Maminov](anton.maminov@gmail.com)
 
 This project is licensed under the Apache License, a copy of which can be found in the LICENSE file.
