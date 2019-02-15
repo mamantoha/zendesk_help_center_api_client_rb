@@ -8,7 +8,7 @@ module ZendeskAPI
       @connection ||= build_connection
 
       unless @connection.builder.handlers.include?(FaradayMiddleware::FollowRedirects)
-        @connection.builder.use(FaradayMiddleware::FollowRedirects)
+        @connection.builder.insert(0, FaradayMiddleware::FollowRedirects)
       end
 
       return @connection
