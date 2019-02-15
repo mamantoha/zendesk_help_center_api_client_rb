@@ -15,6 +15,7 @@ Gem::Specification.new do |spec|
 
   spec.files = [
     'README.md',
+    'lib/ext/zendesk_api/client.rb',
     'lib/zendesk_api/help_center.rb',
     'lib/zendesk_api/help_center/version.rb'
   ]
@@ -23,6 +24,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_runtime_dependency 'zendesk_api'
+  spec.add_runtime_dependency 'faraday_middleware'
 
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'pry'
