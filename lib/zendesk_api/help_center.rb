@@ -1,4 +1,6 @@
 require 'zendesk_api'
+require 'ext/zendesk_api/client'
+require 'zendesk_api/help_center/version'
 
 module ZendeskAPI
   module HelpCenter
@@ -39,13 +41,13 @@ module ZendeskAPI
         include Destroy
 
         def initialize(client, attributes = {})
-          attributes["category_id"] ||= attributes.delete('source_id')
+          attributes['category_id'] ||= attributes.delete('source_id')
           super
         end
 
         def destroy!
           super do |req|
-            req.path = @client.config.url + "/help_center/translations/" + id.to_s
+            req.path = @client.config.url + '/help_center/translations/' + id.to_s
           end
         end
 
@@ -63,13 +65,13 @@ module ZendeskAPI
         include Destroy
 
         def initialize(client, attributes = {})
-          attributes["section_id"] ||= attributes.delete('source_id')
+          attributes['section_id'] ||= attributes.delete('source_id')
           super
         end
 
         def destroy!
           super do |req|
-            req.path = @client.config.url + "/help_center/translations/" + id.to_s
+            req.path = @client.config.url + '/help_center/translations/' + id.to_s
           end
         end
 
@@ -87,13 +89,13 @@ module ZendeskAPI
         include Destroy
 
         def initialize(client, attributes = {})
-          attributes["article_id"] ||= attributes.delete('source_id')
+          attributes['article_id'] ||= attributes.delete('source_id')
           super
         end
 
         def destroy!
           super do |req|
-            req.path = @client.config.url + "/help_center/translations/" + id.to_s
+            req.path = @client.config.url + '/help_center/translations/' + id.to_s
           end
         end
 
@@ -104,14 +106,14 @@ module ZendeskAPI
     end
 
     class HcCategory < Resource
-      namespace "help_center"
+      namespace 'help_center'
 
       has_many Section
       has_many Article
     end
 
     class Section < Resource
-      namespace "help_center"
+      namespace 'help_center'
 
       has HcCategory
       has_many Article
@@ -125,7 +127,7 @@ module ZendeskAPI
     end
 
     class Article < Resource
-      namespace "help_center"
+      namespace 'help_center'
 
       has HcCategory
       has Section
@@ -134,7 +136,7 @@ module ZendeskAPI
         super do |req|
           case req.method
           when :post # create article
-            req.path = "help_center/sections/#{association.options["parent"].id}/articles"
+            req.path = "help_center/sections/#{association.options['parent'].id}/articles"
           when :put # update article
             # do nothing
           end

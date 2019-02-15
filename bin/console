@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-require "bundler/setup"
-require "zendesk/help_center"
+require 'bundler/setup'
+require 'zendesk_api/help_center'
 
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
@@ -19,9 +19,11 @@ client = ZendeskAPI::Client.new do |config|
   config.logger = Logger.new(STDOUT)
 end
 
+puts client
+
 # (If you use this, don't forget to add pry to your Gemfile!)
 # require "pry"
 # Pry.start
 
-require "irb"
+require 'irb'
 IRB.start
