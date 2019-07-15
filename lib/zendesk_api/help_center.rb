@@ -1,5 +1,6 @@
 require 'zendesk_api'
 require 'ext/zendesk_api/client'
+require 'ext/zendesk_api/resource'
 require 'zendesk_api/help_center/version'
 
 module ZendeskAPI
