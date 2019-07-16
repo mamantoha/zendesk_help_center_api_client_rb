@@ -13,12 +13,7 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 2.3.0'
 
-  spec.files = [
-    'README.md',
-    'lib/ext/zendesk_api/client.rb',
-    'lib/zendesk_api/help_center.rb',
-    'lib/zendesk_api/help_center/version.rb'
-  ]
+  spec.files = `git ls-files`.split("\n")
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
